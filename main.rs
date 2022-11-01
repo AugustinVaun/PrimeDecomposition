@@ -16,16 +16,15 @@ fn main() {
     .expect("Failed to read line");
     
     target = written_target.trim().parse().unwrap();
-
+    let input = target;
     //Check for evenness of the number until impossible to divide by 2.
     while {target % 2} == 0 {
         target = target / 2;
         decomposition.push(2);
     }
-    println!("{:?}", decomposition);
 
     //Create upper boundary to search from.
-    let mut upper_boundary = {target+1}/2;
+    let mut upper_boundary = target+1;
     
     //Iterate on the upper_boundary until it reaches 1
     while upper_boundary > 2 {
@@ -44,9 +43,9 @@ fn main() {
         //Change the new target to the quotient
         target = target/primes[iterator];
         //Redefine the boundary
-        upper_boundary = {target+1}/2;
+        upper_boundary = target;
     }
 
-    println!("The prime decomposition of {} is :", target);
+    println!("The prime decomposition of {} is :", input);
     println!("{:?}", decomposition);
 }
