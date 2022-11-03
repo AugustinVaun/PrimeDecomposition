@@ -32,10 +32,10 @@ fn main() {
         let primes = prime_generator::prime_generator(upper_boundary);
         
         //create an iterator for the prime vector to go through from highest to lowest
-        let mut iterator :usize = primes.len()-1;
+        let mut iterator :usize = 0;
         //Search from highest to lower prime for a divisor
         while {target % primes[iterator]} != 0 {
-            iterator -=1;
+            iterator +=1;
         }
 
         //Add the divisor to the decomposition vector
